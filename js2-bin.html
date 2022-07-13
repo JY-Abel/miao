@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html{
+      margin: 0px;
+    }
+    .a{
+      background-color: black;
+    }
+    .a > p{
+      width: 600px ;
+      margin: auto;
+      color: white;
+      display: block;
+    }
+    main{
+      width: 615px;
+      height: 460px;
+      margin: auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    ul{
+      list-style: none;
+    }
+    ul li {
+      box-sizing: border-box;
+      width: 180px;
+      height: 40px;
+      border: 2px solid;
+      margin-bottom: 15px;
+      background-color: pink;
+      text-align: center;
+    }
+    ul li:hover{
+      background-color: red;
+    }
+    ul li:nth-child(n+5){
+      margin-left: 200px;
+    }
+    ul li:nth-child(n+9){
+      margin-left: 400px;
+    }
+    ul li:nth-child(4n+5){
+      margin-top: -220px;
+    }
+    ol{
+      list-style: none;
+      padding: 0px;
+    }
+    ol li{
+      border-bottom: 1px dotted;
+      margin-bottom: -1px;
+    }
+    .ooo{
+      background-color:crimson;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="a">
+    <p>
+      hello world 请调整浏览器窗口大小查看效果hello world 请调整浏览器窗口大小查看效果hello world 请调整浏览器窗口大小查看效果hello world 请调整浏览器窗口大小查看效果hello world 请调整浏览器窗口大小查看效果hello world 请调整浏览器窗口大小查看效果
+    </p>
+  </div>
+  <main>
+    <p class="c">
+      页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
+    </p>
+    <ul>
+      <li>宽180高40(包含边框)</li>
+      <li>产品</li>
+      <li>产品</li>
+      <li>水平间隙30px</li>
+      <li>产品</li>
+      <li>产品</li>
+      <li>垂直间隙15px</li>
+      <li>产品</li>
+      <li>产品</li>
+      <li>边框宽度3px</li>
+      <li>产品</li>
+      <li>产品</li>
+    </ul>
+    <ol>
+     <li>link</li>
+     <li>link</li>
+     <li>link</li>
+     <li>link</li>
+    </ol>
+    </main>
+    <p class="ooo">
+      &COPY;版权所有<br>
+      本页所有布局均使用块元素
+    </p>
+  </body>
+</html>
