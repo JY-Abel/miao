@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    div {
+      position: relative;
+    }
+    .u1{
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      background-color: pink;
+      list-style: none;
+      display: none;
+    }
+    div:hover > ul{
+      display: block;
+    }
+     .pp{
+      position: relative;
+     }
+     .u2{
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      top: 0;
+      left: 100%;
+      list-style: none;
+      display: none;
+      xwhite-space: nowrap;
+     }
+     .pp:hover >.u2{
+      display: block;
+     }
+  </style>
+</head>
+<body>
+  <div>文件
+    <ul class="u1">
+      <li>文件</li>
+      <li>文件</li>
+      <li>文件</li>
+      <li>文件</li>
+      <li>文件</li>
+      <li class="pp">文件
+        <ul class="u2">
+          <li>编辑</li>
+          <li>选择</li>
+          <li>查看</li>
+        </ul>
+      </li>
+      <li>文件</li>
+      <li>文件</li>
+    </ul>
+  </div>
+</body>
+</html>
