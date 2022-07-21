@@ -1,112 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=*, initial-scale=1.0">
   <title>Document</title>
   <style>
-    
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-.tp{
+  * {
+    margin: 0;
+    padding: 0;
+  }
+div{
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
   background-color: black;
   color: white;
+  margin: auto;
 }
-.tp > li {
-  display: inline-block;
-}
-.tp li {
-  position: relative;
-  white-space: nowrap; 
-}
-
-.tp ul {
+ul{
   position: absolute;
   left: 0;
   top: 100%;
+  background-color: aquamarine;
   display: none;
 }
-.tp ul ul {
+div:hover >ul{
+  display: block;
+}
+div ul >li{
+  position: relative;
+}
+div ul ul{
+  position: absolute;
   left: 100%;
   top: 0;
+  background-color: pink;
+  display: none;
 }
-
-.tp li:hover > ul {
+div ul >li:hover ul{
   display: block;
 }
 
-.tp ul {
-  background-color: black;
-  color: gray;
-}
-.tp li:hover {
-  background-color: pink;
-}
-
-.tp li li {
-  padding: 0;
-}
-.tp li li > span {
-  position: absolute;
-  right: 10px;
-  top: 0;
-}
   </style>
 </head>
-
-<body>
-   
-  <ul class="tp">
-    <li>文件
-      <ul>
-        <li>打开
-        </li>
-        <li class="sp"></li>
-        <li>保存</li>
-        <li>保存</li>
-        <li>另存为
-          <ul>
-            <li>编辑</li>
-            <li>查看</li>>
-              <ul>
-               <li>编辑</li>
-               <li>查看</li>
-              </ul>
-            </li>
-            <li>other
-              <ul>
-                <li>utf8</li>
-                <li>gb2312</li>
-                <li>other
-                  <ul>
-                    <li>utf8</li>
-                    <li>gb2312</li>
-                    <li>other</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>打开</li>
-      </ul>
-    </li>
-    <li>查看
-      <ul>
-        <li>打开</li>
-        <li>保存</li>
-        <li>另存为...</li>
-        <li>打开</li>
-      </ul>
-    </li>
-    <li>编辑</li>
-  </ul>
+<body>  
+  <div>文件 文件 文件
+    <ul>
+      <li>waaaa</li>
+      <li>aaaaaa</li>
+      <li>aaaa
+        <ul>
+          <li>waaaa</li>
+          <li>aaaaaa</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </body>
-
 </html>

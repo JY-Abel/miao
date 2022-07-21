@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/less">
+      input{
+        display: none;
+      }
+      input + .ht{
+        width: 465px;
+        height: 270px;
+        border: 1px solid black;
+        border-radius: 10em;
+        display: inline-block;
+        background-color: white;
+        overflow: hidden;
+      }
+      input+ .tp {
+      width: 235px;
+      height: 235px;
+      margin-left: 8px;
+      margin-top: 15px;
+      display: inline-block;
+      border: 1px solid black;
+      border-radius: 10em;
+      background-color: white;
+      /* transition: 1 linear; */
+     }
+     input:checked + .ht{
+        transition: 1s linear;
+        background-color: aquamarine;
+      }
+      input:checked +.ht>.tp{
+        transition: 1s linear;
+        margin-left: 227px;
+      }
+  </style>
+</head>
+<body>
+      <input type="checkbox" id="dd" class="ht">
+      <label for="dd" class="ht">
+        <input type="checkbox" id="hd" class="tp">
+        <!-- <label for="dd" class="tp"></label> -->
+      </label>
+  <script src="less.js"></script>
+</body>
+</html>
