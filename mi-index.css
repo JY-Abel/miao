@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.heard {
+  height: 35px;
+  width: 100%;
+  background-color: #333333;
+}
+
+.heard .box1 {
+  display: block;
+  height: 35px;
+  width: 1210px;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+  position: relative;
+  float: left;
+}
+
+ul li {
+  display: inline-block;
+}
+
+ul li>a {
+  margin: 5px;
+  font-size: 12px;
+  color: #b0b0a4;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+ul li>a:hover {
+  color: #ffffff;
+}
+
+.nav li .s {
+  display: none
+}
+
+.nav li .s:hover {
+  color: #b0b0b0;
+}
+
+.xz{
+  position: relative;
+  display: inline-block;
+}
+
+.tp {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+}
+
+img {
+  width: 90px;
+  height: 90px;
+}
+.heard .box1 .nav .xz:hover .tp{
+  /* top: 35px;
+  left: 50%; */
+  display: block;
+}
+
+.box2 {
+  margin-left: 150px;
+  line-height: 30px;
+}
+
+.box2 button {
+  border: none;
+  background-color: #333333;
+  color: #b0b0a4;
+  margin: 5px;
+}
+
+.box2 button:hover {
+  color: #ffffff;
+}
+
+.box2 button a {
+  color: #b0b0a4;
+}
+.box3{
+  width: 1225px;
+  height: 100px;
+  border: 1px solid black;
+}
+.box4{
+  width: 1225px;
+  height: 460px;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 20px;
+}
+.box5{
+  width: 1225px;
+  height: 175px;
+  border: 1px solid black;
+  margin: auto;
+  margin-top:15px;
+}
+.box6{
+  width: 1225px;
+  height: 120px;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 15px;
+}
+.box3 {
+  font-size: 16px;
+  margin: auto;
+}
+
+.box3 .right{
+  width: 55px; 
+  height: 55px;
+  margin-left: 0px;
+}

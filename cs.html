@@ -1,0 +1,432 @@
+<script class="18">
+  var n = Number(prompt()) // 几行
+      baseTotal = Number(prompt()) // 病例
+      baseEffect = Number(prompt()) // 有效 病例
+      baseEffectRatio = baseEffect / baseTotal * 100 //比例
+       for (var i = 1 ; i<n;i++){
+        var total = Number(prompt())
+        var Effect = Number(prompt())
+        var Ratio = effect / total  *   100
+        if (ratio - baseEffectRatio > 5){
+          console.log('better')
+        }else if(baseEffectRatio - ratio > 5) {
+          console.log('worse')
+        }else {
+          console.log('same')
+        }
+       }
+</script>
+
+<script class="19">
+  var n = Number(prompt())
+  for (var i =0;i < n ; i++) {
+    var x = Number(prompt())
+    var y = Number(prompt())
+    var count = Number(prompt())
+    var distance = Math.sqrt(x * x + y * y)
+    var time = distance / 50 * 2 + count * 1.5
+    totalTime += time
+  }
+  console.log(Math.ceil(totalTime))
+</script>
+
+<script class="20">
+  var h = Number(prompt()) //弹起高度
+      H = h // 记录初始高度，以备后面从总值减去
+      total = 0 //总和高度  
+      
+  for (var i = 0; i < 10; i++) {
+    total += h * 2  
+    h = h / 2
+  }
+  total = total - h
+  console.log(total,h)
+</script>
+<script class="21">
+  var n = Number(prompt()) //整数
+
+  while(number !== 1){
+    if (number % 2 == 1) {  // 是奇数
+      var next = number * 3 + 1
+      var str = number + '*3+1=' + next
+                                    // 赋值表达式
+      console.log(str)
+
+    } else if (number % 2 == 0) { // 偶数
+      var next = number / 2
+      var str = number + '/2=' + next
+    }
+    console.log(str)
+    number = next
+  }
+  console.log('End')
+</script>
+
+<script class="22">
+
+  var a = Number(prompt()), // 每月的钱
+      b = 0, // 手上的钱
+      c = 0, // 存下的钱
+      f = false // 钱不够花的时候
+
+  for (var i = 1; i <= 12; i++){
+        b += a  // 手上的钱 = 手上的钱 + 每个月的钱  
+    var d = Number(prompt()) //预算的钱
+
+    if (b < d) { // 手上的钱 < 预算的钱
+      console.log(-i) // 手上的钱小于预算的情况
+      f = true  // 够花
+      break
+    } else {
+      var money = b - d // 多余的钱 = 手上的钱 - 本月预算
+      var c = money - money % 100 // 能存下的钱 = 多余的钱 - 多余的钱 % 100
+          b -= c  // 手上的钱 -= 能存下的钱
+          c += c  // 存下的钱 += 能存下的钱
+          b -= d // 手上的钱 -= 本月预算
+    }
+  }
+  if(!f){
+    console.log(b + c * 1.2)
+  }
+</script>
+
+<script class="23">
+  var m = Number(prompt), // 库存的药总量
+      n = Number(prompt), // 取药的人数
+      count = 0; // 没有取到药的人。
+  for (var i = 0; i < n; i++) {
+    var a = Number(prompt) // 取得药数量
+
+    if (m >= a ) { // 如果库存药大于取得药 ,就卖给他。
+      m -= a   // 取完要的数量
+
+    } else { 
+      count++  // 没有取到药的人
+    }
+  }
+
+  console,log(count)
+</script>
+
+<script class="24">
+  var n = Number(prompt()), // 高压
+      max = 0 ,// 最大血压正常时间
+      a = 0 ; // 累计的没有高压的天数
+
+  for (var i = 0; i < n;i++){
+    var h = Number(prompt()) // 高的血压
+        l = Number(prompt()) // 低压
+        b = false
+      if (h >= 90 && h <= 140 && l >= 60 && l <= 90) {
+          b = true  // 正常
+      } 
+      if (!b) { // 不正常
+        a = 0 //最长正常时间
+      }
+      else {
+        a += a //累计连续的血压正常时间
+      } if (a > max) { // 当下累计的连续血压正常时间 > 最大血压正常时间
+        max = a 
+      }
+  }
+
+  console,log(max)
+</script>
+
+<script class="25">
+  for (var x = 81; x <= 342 ; x++) {
+    var a7 = x % 7 // 7进制个位数
+    var b7 = (x - a7) / 7 % 7 // 7进制的右数第二位
+    var c7 = (x- a7 - b7 * 7) / 7 / 7 % 7 // 7进制右数第三位数
+
+    var a9 = x % 9 // 9进制个位数
+    var b9 = (x - a9) / 9 % 9 // 9进制的右数第二位
+    var c9 = (x- a9 - b9 * 9) / 9 / 9 % 9 // 9进制右数第三位数
+
+    if (a7 ==c9 && a9 == c7 && b7 == b9) {
+      console.log(x)
+      console.log('' + c7 + b7 + a7)
+      console.log('' + c9 + b9 + a9)
+      break
+    }
+  }
+</script>
+
+<script class="26">
+  var n = Number(prompt())
+
+  for (var i = 0;i < n; i++){
+    var x = Number(prompt())
+
+        a = x % 10  // 个位
+        b = (x -a) / 10 % 10 // 十位
+        c = (x -a - b * 10) / 10 / 10 % 10 // 百位
+        d = (x -a -b * 10 - c * 100) / 10 / 10 / 10 % 10 //千位
+
+    if (a -b - c -d > 0) {
+      count++
+    }
+  }
+  console.log(count)
+</script>
+
+<script class="27">
+  var k = Number(prompt())
+      sum = 0
+  for (var i = 1; ; i++) {
+    sum += 1 / i
+    if (sum > k) {
+      break
+    }
+  }
+  console.log(i)
+</script>
+
+<script class="28">
+  var n = Number(prompt())
+  
+  while(n > 0) {
+    var d = n % 10
+    console.log(d)
+    n = n - d
+    n = n / 10
+  }
+
+</script>
+ 
+<script class="29">
+  var n = Number(prompt())
+      sign = 1
+
+  if (n < 0) {
+    n = -n
+    sign = -1
+  }
+
+  var str = ''
+  do {
+    var d = n % 10
+        str = str + d
+        n = n - d
+        n = n / 10
+  } while (n > 10) 
+
+  if (sign == 1) {
+    console.log(str)
+  } else {
+    console.log('-' + str)
+  }
+</script>
+
+<script class="31">
+  var n = Number(prompt()), // 灯的数量
+      m = Number(prompt()), // 人的数量
+      result = '',
+      first = false ;
+
+  for (var i - 1; i < n ; i++) { // 遍历每一个灯
+    var open = true  //灯一直是开着的
+
+    for ( var j = 1;j<=m && j<=i; j++) {
+
+      if (i % j == 0) { // 如果灯的编号是人的编号的倍数
+        open = !open // 切换灯的状态
+      }
+    }
+    if(!open){ // 如果灯是关着的
+      result += (i)
+    } else {
+      result += (','+ i)
+    }
+  }
+  console.log(result)
+ </script>
+
+ <script>
+  var n = Number(prompt()),
+      a = 1,
+      b = 2,
+      sum = 0;
+
+    for(var i = 0;i < n; i++) {
+      sum += b / a
+
+    }
+ </script>
+
+ <script class="32">
+
+    var n = Number(prompt()),
+        a = 1,
+        b = 2,
+        sum = 0;
+
+    for (var i = 0;i < n; i++) {
+      sum += b / a
+      b = b + a
+      a = b - a
+
+    }
+    console.log(sum.toFixed(4))
+
+ </script>
+
+ <script class="33">
+  var n = Number(prompt()) 
+  
+  for (var i = 1; i<=0; i++) {
+    if (i % 2 == 1) {
+      sum += 1 / i
+    }else {
+      sum -= 1 / i
+    }
+  }
+
+ </script>
+
+ <script class="34">
+  var n = Number(prompt())
+      sum = 0  // 计算i的阶乘，初始为1 
+      var factorial = 1
+  for (var i = 1;i <= n; i++) { //遍历1到i
+      factorial *= i
+      sum += factorial
+    }
+  
+  console.log(sum)
+
+ </script>
+ 
+<script class="35">
+  var n = Number(prompt())
+      sum = 1
+      factorial = 1 
+
+  for (var i = 1; i <= n; i++) {
+      factorial *= i
+
+      sum += 1 / factorial
+  } 
+  console.log(sum)
+</script>
+
+<script class="36">
+  var x = Number(prompt()), // 整数
+  var n = Number(prompt()), // 次方
+      sum = 0 ,
+      p = 1 ,
+
+  for (var i = 0; i < n; i++) { 
+      sum += p
+      p = p * x 
+  }
+
+  console.log(sum)
+</script>
+
+<script class="38">
+  var n = Number(prompt())
+      M = m  // 保存最高次幂
+
+  for (var i = 1; i < n; i++) {
+    var m = Number(prompt()) // 最高次幂
+
+    if (m == 0) { // 最高次幂为0时是特殊情况, 因为也要输出1个数
+      var c = Number(prompt())
+      console.log(0)
+    }else { // 其他的情况最高次幂是n,输出n个数.
+      for( var j = 0; j <= M; j++) {
+        var c = Number(prompt())
+        if (j !== M) {
+          console.log(c * m)
+        }
+        m--
+      }
+    }
+  }
+
+</script>
+
+<script class="39">
+  debugger
+  var n  = Number(prompt()),
+      sum = 0 ;
+
+  for (var i = 0; i < n ; i++ ){
+    if (i % 7 !== 0) { // 满足该条件才有可能是与7无关的数
+      与7有关 = false // 各个位上有无出现过7
+        // 先假设每个位子上都不是7
+      var j = i // 不改变i,因为i用在外出循环上
+      //  循环计算出各个位上的数,看是否是7
+      while(j > 0) {
+        var d = j % 10
+        if (d == 7) {
+          与7有关 = true
+          break
+        }
+        j = (j - d ) / 10
+      }
+        if (!d == 7) { // 各个位上都没有出现过7,则真的与7无关
+          sum += i * i
+        }
+    }
+  }
+  console.log(sum)
+</script>
+
+<script class="40">
+  var n = Number(prompt()) // n个数
+      count = 0 // 几个1 
+ 
+      //对于1到n的每个数
+  for (var i = 1;i < n;i++) {
+      var x = i    
+
+      // 将x拆解为其每位上的数
+      while(x > 0) {
+        var d = x % 10 
+        if (d == 1) { // 如果是1，则计数加1
+          count++
+        }
+        x = (x - d ) / 10
+      }
+  }
+  console.log(count)
+</script>
+
+<script class="41">
+  var start = Number(prompt())
+      end = Number(prompt())
+      count = 0
+
+  for (var i = start; i <= end; i++) {
+      var x = i
+      while (x > 0) {
+        var d = x % 10
+        if (d == 1) {
+          count++
+        }
+        x =(x - d ) / 10
+      }
+  }
+  console.log(count)
+
+</script>
+
+<script class="42">
+  var h = Number(prompt()),
+  var w = Number(prompt()),
+  var char = prompt(),
+  var fill = Number(prompt()),
+      midLine = char; // 中间的那些行
+  
+  for(var i = 1; i < h - 1; i++) {
+      if (fill) {
+        midLine += char
+      } else {
+        midLine += ' '
+      }
+  }
+  midLine += char
+
+ </script>

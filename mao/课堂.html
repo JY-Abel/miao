@@ -1,0 +1,518 @@
+<script>
+  function range(start , end) {
+    for (var i = 0; i < end.length;i++) {
+      if (start[i] === end) {
+        return i
+      }
+    }
+  }
+</script>
+
+<script>
+  function bubbleSort(ary) {
+    for (var i = 0;i < ary.length; i++)
+  }
+</script>
+
+<script> // 冒泡排序
+  function bubbleSort(ary) {
+    for (var stop = ary.length - 1;stop >= 1;stop--){
+      for (var i = 0; i < ary.length - 1;i++) { // 遍历到他数组的倒数第二位就好
+        if (ary[i] > ary[i + 1]) { // 如果后面比前面大,则调换位置
+          var t = ary[i + 1] // 保留这个值
+          ary[i + 1] = ary[i] // 重新赋值
+          ary[i] = t  // 同上
+        }
+      }
+    }
+    return ary
+  }
+
+
+  // * 时间复杂度为：O（n*n）
+  // * 空间复杂度： O（1）
+  // // 记录是否是有序排列
+  // function bubbleSort(ary) {
+  //   for (var stop = ary.length - 1;stop >= 1;stop--){
+  //     var 换过 = false // 没换就是假的
+  //     for (var i = 0; i < ary.length - 1;i++) { // 遍历到他数组的倒数第二位就好
+  //       if (ary[i] > ary[i + 1]) { // 如果后面比前面大,则调换位置
+  //         换过 = true // 换过就是真
+  //         var t = ary[i + 1] // 保留这个值
+  //         ary[i + 1] = ary[i] // 重新赋值
+  //         ary[i] = t  // 同上
+  //       }
+  //     }
+  //     if (!换过) {
+  //       break
+  //     }
+  //   }
+  //   return ary
+
+
+  // 生成长度为n的随机数组成的数组
+  function randomArray(n) {
+    var result = []
+    for (var i = 0; i < n; i++) {
+      result.push(Math.random()* n | 0)
+    }
+    return result
+  }
+
+  // 判断一个数组是不是升序的 (非递减)
+  function isSorted(ary) {
+    for (var i = 0;i < ary.length - 1;i++) {
+      if (ary[i] < ary[i - 1]) {
+        return false
+      }
+    } 
+    return true 
+  }
+</script>
+
+
+<script>
+/**
+ * 选择排序
+ * 时间复杂度： n*n
+ * 空间复杂度：1
+ */
+ function selectSort(ary) {
+  // 起点最多只需要到倒数第二个位置
+  for (var start = 0;start < ary.length - 1;start++) {
+
+    // 先假设起点元素是最小的
+    var minIdx = i  // 用来记录无序范围内最小元素的下标
+
+    // 最小值是数组的第i项 ，不等于零的原因是考虑到还有负数的可能
+    for (var i =start + 1; i < ary.length;i++) { //找从起点的下一个开始的最小元素的下标
+      if (ary[i] < ary[minIdx]) { 
+        minIdx = i
+      }
+    }
+  
+    var t = ary[0]
+    ary[0] = ary[minIdx]
+    ary[minIdx] = t
+  }
+  return ary
+}
+  
+</script>
+
+<script>
+  /**
+   * 插入排序
+   * 时间复杂度: n*n
+   * 空间复杂度: 1
+   */
+    function insertSort(ary) {
+      // i 指向无序部分的第一个
+      for (var i = 1;i < ary.length;i++) {
+        var value = ary[i]  // 先把小的那个数取出保存
+        for (var j = i - 1;j >= 0;j--) { // 从后面往前遍历
+          if (ary[j] > value) { // 如果后面的数大于这个数
+            ary[j + 1] = ary[j] 
+          } else {
+            break
+          }
+        }
+        ary[j + 1] = value
+      }
+      return ary
+    } 
+</script>
+
+<script>
+  /**
+   * 归并排序
+   * 拆分
+   * 排序
+   * 合并
+   * 返回
+   */
+  function mergeSort(ary) {
+    if (ary.length < 2) {
+      return ary
+    }
+
+   var mid  = Math.floor(ary.length / 2)
+   var left = ary.slice(0,mid)
+   var right = ary.slice(mid)
+   //拆分
+   mergeSort(left)
+   mergeSort(right)
+   //排序
+   var i = 0
+   var j = 0
+   var k = 0
+   while (i < left.length && j < right.length) {
+      if (left[i] < right[i]) {
+        ary[k] = left[i]
+        k++
+        i++
+      } else {
+        ary[k] = right[j]
+        k++
+        j++
+      }
+   }
+
+   while (i < left.length) {
+        ary[k] = left[i]
+        k++
+        i++
+   } 
+
+   while(j < right.length) {
+        ary[k] = right[j]
+        k++
+        j++
+   }
+   // 合并
+    return ary
+    //返回
+  }
+
+
+
+var selectSort =  function(nums ){
+  if(nums.length<2){
+                return nums
+                }
+             //拆分
+                var mid = Math.floor(nums.length/2)
+                var left = nums.slice(0,mid)
+                var right = nums.slice(mid)
+                //排序
+                sortArray(left)
+                sortArray(right)
+             //合并
+                var i=0
+                var j =0
+                var k = 0
+                while(i<left.length && j<right.length){
+                if(left[i]<right[j]){
+                    nums[k] = left[i]
+                    i++
+                    k++
+                }else{
+                    nums[k] = right[j]
+                    j++
+                    k++
+                }
+                }
+         while(i<left.length){
+            nums[k] = left[i]
+            i++
+            k++       
+                }
+         while(j<right.length){
+            nums[k] = right[j]
+            j++
+            k++
+            }
+         return nums
+    };
+</script>
+
+<script>
+  /**
+   * 快排排序
+   * 时间复杂度 :n*log(n)
+   * 空间复杂度 :n + log(n)
+   */ 
+  function quickSort(ary) {
+    if (ary.length < 2) {
+      return ary.slice()
+    }
+    // 随机选数
+    var num = ary.at(Math.random() * ary.length | 0)
+    //对原数组基于选择的数分组,小于它的,等于它的,大于它的分别在一组里
+    var left = []
+    var middle = []
+    var right = []
+    for (var i = 0;i < ary.length;i++) {
+      if (ary[i] < num) {
+        left.push(ary[i])
+      } else if (ary[i] > num) {
+        right.push(ary[i])
+      } else if (ary[i] == num) {
+        middle.push(ary[i])
+      }
+    }
+    // 对第一组合第三组递归进行排序
+    var sortedLeft = quickSort(left) //返回原数组
+
+    var sortedRight = quickSort(right)
+    // 拼接这三个数组并返回
+    return sortedLeft.concat(middle,sortedRight)
+  }
+</script>
+
+
+
+第十四天  
+
+<script>
+  function swap(ary,i,j) {
+
+  }
+
+  function qSort(ary) {
+    // 哨兵元素下标
+    var pivotIndex = Math.random() * ary.length | 0 
+    // 哨兵元素的值
+    var pivot = ary.at(pivotIndex)
+    // 将哨兵元素带到数组末尾
+    swap(ary,pivotIndex,ary.length - 1)
+
+    var i = 0
+    for (var j = 0;j < ary.length -1;j++) {
+      if (ary[j] < pivot) { // 这里为什么不用小于等于,
+        swap(ary,i,j)
+        i++
+      }
+    }
+    swap(ary, i, j) // 
+
+    qSort(ary, 0,i - 1)
+    qSort(ary,i + 1,ary.length - 1 )
+  }
+</script>
+
+<script>
+  function deepEqual(a,b) {
+    if (a === b) {
+      return true
+    }
+    if ()
+
+  }
+</script>
+
+
+// 十四课时
+<script>
+  function arrayToList(ary) {
+    if (ary.length == 0) {
+      return null // null表示空链表
+    }
+    var nodes = []
+    // 针对每个数组元素创建一个链表结点并存起来
+    for  (var i = 0; i < ary.length; i++) {
+      var node = {
+        val: ary[i],
+        next : null,
+      }
+      nodes.push(node)
+    }
+    for (var i = 0; i < ary.length - 1; i++) {
+      var currNode = nodes[i]
+      currNode.next = nodes[i + 1] // 相当于将下一个结点的地址存到上一个结点的next属性上
+    }
+    return nodes[0]
+  }
+
+
+
+  function arrayToList2(ary) {
+    var prevNode = {val: 0, next : null}
+
+    var dummyNode = prevNode // 保留第一个结点
+
+    for (var i = 0; i < ary.length; i++) {
+      var node = {
+        val : ary[i],
+        next : null,
+      }
+      prevNode.next = node
+      prevNode = node // 当前结点既成为了下一圈的"前一个地点"
+    }
+    return dummyNode.next
+  }
+
+  function listToArray(list) {
+    var result = []
+    while (list) {
+      result.push(list.val) // 有限链表
+      list = list.next 
+    }
+    return result
+  }
+
+
+  function listToArrayR(list) {
+    if (!list) {
+      return []
+    }
+    var tail = list.next // 除第一个结点以外的结点组成的尾巴链表
+
+    //将头结点跟尾巴链表转换得到的数组连成一个大数组即为结果
+    //而把尾巴链表转换得到的数组可以递归完成
+    var result = listToArrayR(tail)
+    result.unshift(list,val)
+    return result
+  }
+
+  function arrayToListR(ary) {
+    if (ary.length == 0) {
+      return null
+    }
+    //第一个元素创建结点
+    var head = {
+      val : ary[0],
+      next : null,
+    }
+    // 剩余元素组成新的数组
+    var restArray = ary.slice(1)
+    // 新的数组组成链表
+    var tail = arrayToListR(restArray)
+    //第一个结点的next指向该链表的头结点
+    head.next = tail
+
+    return head
+  }
+
+  function nth(list,n) {
+    if (n < 0) {
+      return undefined
+    }
+    var p = list
+
+    for (var i = 0; i < n && p; i++) {
+
+      p = p.next
+
+    }
+
+    if (p) {
+      return p.val
+    } else {
+      return undefined
+    }
+
+    return p.val
+  }
+
+  function nthR(list,n) {
+    if (!list || n < 0) {
+      return list.val
+    }
+    if (n == 0) {
+      return list.val
+    }
+    return nthR(list.next, n - 1)
+  }
+
+  function append(list,val) {
+    if (!list) {  // 链表为空,直接返回创建的新节点
+      var node = {
+        val: val,
+        next: null,
+      }
+      return node
+    }
+    if (!list.next) { // 链表只有一个结点时,满足这个条件说明链表只有一个结点
+      var node = {
+        val:val,
+        next: null,
+      }
+      list.next = node
+      return list
+    }
+
+    return append(list.next,val)
+  }
+</script>
+
+<script>
+  function house(ary) {
+    
+  }
+</script>
+
+<script>
+  var  ary = [1,2,3,4]
+  for(var i = 0;i < ary.length;i++) {
+    var current = ary[i]
+    console.log(current)
+  }
+
+
+
+  var result = []
+
+  for (var i = 0;i < ancestry.length;i++) {
+    var p = ancestry[i]
+    if (1924 - p.born < 25 && 1924 - p.born > 0) {
+      result.push(p)
+    }
+  }
+
+  console.log(result)
+</script>
+
+
+
+16
+<script>
+  var sum = [11,17,2,7,19,3,14,5]
+  var sum = 0
+  for (var i = 0;i < ary.length; i++) {
+    sum += ary[i]
+  }
+  console.log(sum)
+
+  var sum = [11,17,2,7,19,3,14,5]
+  var product = 1
+  for (var i = 0;i < ary.length; i++) {
+    product += ary[i]
+  }
+  console.log(product)
+
+  var sum = [11,17,2,7,19,3,14,5]
+  var max = 0 
+  for (var i = 0; i < ary.length; i++) {
+    if (ary[i] > max) {
+      max = ary[i]
+    }
+  }
+  console.log(max) 
+
+  var sum = [11,17,2,7,19,3,14,5]
+  var map = {}
+  for (var i = 0; i < ary.length; i++) {
+    map [ ary[i] ] = i
+  }
+
+console.log(map)
+
+  function every(ary, predicate) {
+    
+    for (var i = 0; i  < ary.length; i++) {
+      if (predicate(ary[i],i, ary) == false) {
+        return false
+      }
+    }
+    return true
+  }
+
+  function some(ary, predicate) {
+    for (var i = 0; i < ary.length; i++) {
+      if (predicate(ary[i]) == true) {
+        return true
+      }
+    }
+    return false
+  }
+
+  function find(ary, predicate) {
+ 
+    for (var i = 0; i < ary .length; i++) {
+      if (predicate(ary[i],i,ary)) {
+        return ary[i]
+      }
+    }
+  }
+</script>

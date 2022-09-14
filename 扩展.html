@@ -1,0 +1,312 @@
+<script id="narcissistic">
+
+  // 获取n的位宽,既获取n是几位数
+  // 两位数返回2, 三位数返回3, 以此类推
+  function digitWidth (n) { // 专门写的函数来求位宽
+    if (n == 0) { 
+      return 1
+    }
+    var w = 0
+    // 看这个数除以10可以除多少次
+    do {
+      var ge = n % 10
+      n = n / 10 
+      w++
+    } while (n > 0)
+    return w  
+  }
+
+  function isFlower (n) { //水仙花数 几朵
+    //先得到数字的位宽
+    var width = digitWidth(n)
+    var sum = 0
+
+    // 取出n的每个位上的数
+    var m = n // 用m存储n的初始值以备后续跟sum做对比
+    while (n > 0) {
+      var ge = n % 10
+      sum += Math.pow(ge,width) // 将每个位上的数的width次方求和
+      n = (n - ge) / 10
+    }
+
+    if (sum === m) {
+      return true 
+    } else {
+      return false
+    }
+  }
+</script>
+
+<script>
+  function warpValue (value) {
+    var local = value
+    
+    return function get () {
+      var a = 1 
+      var b = 2
+      value
+      return local + a + b
+    }
+  }
+  wrap1 = warpValue(1)
+  wrap2 = warpValue(2)
+</script>
+
+<script>
+  function pow (a , n ) {
+    if ( n == 0 ) {
+      return 1
+    } else {
+      return pow (a , n - 1 ) * a  
+    }
+  }
+</script>
+
+<script>
+  function fibb(n) {
+    if (n == 1 || n == 2) {
+      return 1
+    } else {
+      return fibb(n - 1) + fibb(n - 2)
+    }
+  }
+</script>
+
+<script>
+  var target = 24
+
+  function find(start,history) {
+    if (start === target) {
+      console.log(history)
+    }
+    if (start > target) {
+      return 
+    }
+    var  a = start * 3
+    var ah = '(' + history + ') * 3' 
+    var b = start + 5
+    var bh = '(' + history +') + 5'
+    find(a, ah)
+    find(b, bh)
+  }
+</script>
+
+<script>
+  function find(x,y,history) {
+    if (x === tx && y == ty) {
+      console.log(history)
+      return
+    }
+    if (x > tx || y > ty) {
+      return
+    }
+
+    find(x + 1, y, history + '>')
+    find(x, y + 1, history + 'A')
+  }
+</script>
+
+<script>
+  var target = 6
+
+  function find(start,history) {
+    if (start === target) {
+      console.log(history)
+    }
+    if (start > target) {
+      return 
+    }
+    var  a = start + 1
+    var ah = history + '>'
+    var b = start +  2
+    var bh = history + 'A'
+    find(b, bh)
+  }
+</script>
+
+<script>
+  var target = 6
+
+  function find(start,history) {
+    if (start === target) {
+      return history
+    }
+    if (start > target) return null 
+
+    var result = find(start * 3, '(' + history + ') * 3')
+    if (result) {
+      return result
+    }
+
+    var result = find(start + 5, '(' + history + ') + 5')
+    if (result) {
+      return result
+    }
+    return null
+  }
+</script>
+
+<script>  238
+
+var addDigits = function(num) {  // 数组
+    function a(value) {
+        if(String(value).length === 1) {
+            return value
+        }
+        value = value.toString().split('')
+        let sum = 0
+        for(let i=0;i<value.length;i++) {
+            sum += parseInt(value[i])
+        }
+        return a(sum)
+    }
+    return a(num)
+};
+
+var addDigits = function(num) {  // 循环
+    while (num >= 10) {
+        let sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num = Math.floor(num / 10);
+        }
+        num = sum;
+    }
+    return num;
+};
+
+var addDigits = function(num) {
+      var sum = 0 
+      while (num > 0) {
+        var ge = num % 10
+        sum = (num - ge ) / 10
+        sum += ge
+      }
+      if (sum < 10) {
+        return sum 
+      } else {
+        return  addDigits(sum) 
+      }
+}
+</script>
+
+<script> 263
+  var isUgly = function(num) {
+    if (n === 1) return true
+  if (n <= 0) return false
+  if (n % 2 === 0) n /= 2 
+  if (n % 3 === 0) n /= 3
+  if (n % 5 === 0) n /= 5 
+  return n 
+ 
+};
+
+if (n === 1) return true;
+    if (n <= 0) return false;
+    const list = [2, 3, 5];
+    if (list.includes(n)) return true;
+    // 遍历2，3，5
+    for (let i = 0; i < list.length; i++) {
+        // 如果能整除，递归再判断
+        if (n % list[i] === 0) return isUgly(Math.floor(n / list[i]));
+    }
+    // 遍历结束，返回false
+    return false
+
+
+
+</script>
+var i = 0 //  循环
+    var l = 0 // 0 出现次数
+    var long = nums.length // 数组长度
+
+    while (i < long) { 
+        if (nums[i] !== 0) {
+            nums[l++] = nums[i]
+        }
+        i++
+    }
+    while (l < long) {
+        nums[l++] = 0
+    }
+
+    var removeDuplicates = function(nums) { 26
+      var n = nums .length
+    
+      if (n == 0 ) {
+          return 0 
+      } 
+        fast = 1
+         slow = 1;
+            while (fast < n) {
+                if (nums[fast] != nums[fast - 1]) {
+                    nums[slow] = nums[fast];
+                    ++slow;
+                }
+                ++fast;
+            }
+            return slow;
+    
+    
+    };
+
+
+
+    var a = 10
+    var a =a.toString()
+    console.log(typeOf(a))
+
+    var a = String(10)
+    console.log(typeof(a))
+
+
+
+    <script>
+       function min(nums){
+        let sum  = min.length 
+         
+        if (sum[0] < sum[1]) {
+          return sum[0]
+        } else {
+          return sum[1]
+        }
+       }
+      
+    </script>
+
+    <script>
+      function isEven(num) {
+        let sum = num 
+        if (sum % 2 == 0) {
+          return even
+        } else {
+          return false
+        }
+      }
+    </script>
+
+    62321
+
+    <script>
+      function countBs(str) {
+        var count = 0
+        for (var i = 0; i < str.length;i++) {
+          if(str[i] == 0) {
+            count++
+          }
+        }
+        return count
+      }
+
+      function countChars(str,char) {
+        var count = 0
+        char = char[0]
+
+        for (var i = 0; i < str.length; i++) {
+          if (str[i] == char ) {
+            count++
+          }
+        }
+        return count 
+      }
+    </script>

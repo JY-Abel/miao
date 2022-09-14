@@ -1,0 +1,265 @@
+<script>// 从左往右 
+  function indexOf(array,target) {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] === target) {
+        return i
+      }
+    }
+    return -1
+  }
+</script>
+
+<script>
+  function lastIndexOf(array, target) { // 倒着数
+    for (var i =array.length - 1 ; i >= 0; i--) {
+      if (array[i] === target){
+        return i
+      }
+    }
+    return -1
+  }
+
+</script>
+
+<script>
+   function indexOf(array,target, fromIndex) {
+    if (fromIndex === undefined) {
+      fromIndex = 0
+    }
+    for (var i = fromIndex; i < array.length; i++) {
+      if (array[i] === target) {
+        return i
+      }
+    }
+    return -1
+  }
+</script>
+
+<script>
+    function indexOf(array,target, fromIndex = 0) {  // 上面的优化
+    for (var i = fromIndex; i < array.length; i++) {
+      if (array[i] === target) {
+        return i
+      }
+    }
+    return -1
+  }
+</script>
+
+<script>
+    function lastIndexOf(array, target, fromIndex = array.length - 1) {
+    for (var i = fromIndex; i >= 0; i--) {
+      if (array[i] === target) {
+        return i
+      }
+    }
+    return -1
+  }
+</script>
+
+<script>
+  function slice(array,start,end = array.length) {
+    var result = []
+    for (var i = start; i <= end; i++) {
+      result.push(array[i])
+    }
+    return result
+  }
+</script>
+
+<script>
+  function slice(str, start = 0; end = array.length) {
+    var result = ''
+    for (var i = array.length; i < end; i++) {
+      result += array[i]
+    }
+    return result
+  }
+</script>
+
+<script>
+  function concat(array, items) {  // 拼接复制
+    var result = []
+    for (var i = 0; i < array.length; i++) {
+      result.push(array[i])
+    }
+    if (Array.isArray(items)) {
+      for (var i = 0; i < items.length; i++) {
+        result.push(items[i])
+      }
+    } else {
+      result.push(items)
+    }
+    return result
+  }
+</script>
+
+<script>
+  function at(array, idx) {
+    if (idx >= 0) {
+      return array[idx]
+    } else {
+      return array[array.length + idx]
+    }
+  }
+</script>
+
+<script>
+  // 将数组从start到end区间内的值复制到以target为起点的区间内
+  function copyWithin(array,target,start,end) {
+    if (target < start) {
+      for (var i = start; i < end; i++) {
+        array[target] = array[i]
+        target++
+      }
+    }
+    if (target > start) {
+      for (var i = end - 1; i >= start; i--) {
+        array[target] = array[i] 
+        target--
+      }
+    }
+    return array
+  }
+</script>
+
+<script>
+  // 将数组展平,减少一个维度
+  // [1,2,3,4,5,6],[6,7]
+  // [1,2,3,4,5,6,7]
+  function flat(array) {
+    var result = [] 
+    for (var i = 0; i < array.length; i++) {
+      var item = array[i] 
+      if (Array.isArray(item)) {
+        for (var j = 0; j < item.length; j++) {
+          result.push(item[j])
+        }
+      } else {
+        result.push(items)
+      }
+    }
+    return result
+  }
+
+  // 判断这个值是不是一个普通对象
+  function isPlainObject(it) {
+    return !Array.isArray(it) && typeof it === 'object' && it !== null 
+  }
+
+  // 不用担心depth传入无穷大
+  //虽然传入无穷大时随着递归进行depth并不会减少,但array的深度会逐渐减少,最张到一维
+  //就再不会进for循环内部的if了,只会进else,不在递归了
+  function flat(array, depth = 1) { 
+    if (depth == 0) {
+      return array.slice()
+    }
+    var result = [] 
+    for (var i = 0; i < array.length; i++) {
+      var item = array[i] 
+      if (Array.isArray(item)) {
+        var flattedItem = flat(item,depth - 1) // 把item降低n-1个维度
+        for (var j = 0; j < item.length; j++) {
+          result.push(flattedItem[j])
+        }
+      } else {
+        result.push(items)
+      }
+    }
+    return result
+  }
+
+  function flat(array, depth = 1) {
+    for (var k = 0; k < depth; k++) {
+      // 从这
+      var result = [] 
+      for (var i = 0; i < array.length; i++) {
+        var item = array[i] 
+        if (Array.isArray(item)) {
+          for (var j = 0; j < item.length; j++) {
+            result.push(item[j])
+          }
+        } else {
+          result.push(items)
+        }
+      }
+      array = result  // 到这, 会把array降低一个维度,并将结果放入result上
+    }
+    return result
+  }
+</script>
+
+<script>
+  function includes(array,value) {
+    if (value !== value) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] !== array[i]) {
+          return true 
+        }
+      }
+      return false
+    } else {
+      for (var i = 0;i < array.length; i++) {
+        if (array[i] === value) {
+          return true 
+        }
+        return false
+       }
+    }
+  }
+</script>
+
+<script>
+  // 就地返回
+
+  function reverse(array) {
+    var stop = Math.floor(array.length / 2) 
+    for (var  i = 0; i < stop; i++) {
+      var j = array.length - i - 1
+      // 调换i的位置和j位置的元素
+      var t = array[j] 
+      array[j] = array[i] 
+      array[i] = t
+    }
+    return array
+  }
+
+  // 返回原数组的反转后的新数组
+
+  function reverse(array) {
+    var result = Array(array.length)
+    for (var i = array.length; i >= 0;i--) {
+      var j = array.length - i - 1
+      result[j] = array[i]
+    }
+  }
+</script>
+
+<script>
+  function max() {
+    var max = -Infinity
+    for (var i = 0; i < arguments.length;i++) {
+     if (arguments[i] > max) {
+      max = arguments[i]
+     }
+    }
+    return max 
+  }
+</script>
+
+<script>
+  function concat() {
+    var result = [] 
+    for(var i = 0; i < arguments.length; i++) {
+      var arg = arguments[i]
+      if (Array.isArray(arguments[i])) {
+        for (var j = 0; j < arg.length;j++) {
+          result.push(arg[i])
+        }
+      } else {
+        result.push(arguments[i])
+      }
+    }
+    return result 
+  }
+</script>

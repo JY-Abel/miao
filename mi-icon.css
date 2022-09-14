@@ -1,0 +1,63 @@
+@font-face {
+  font-family: photo;
+  src: url(./图标/mi-iconfont.ttf);
+}
+
+.icon {
+  font-family: photo;
+}
+
+.icon-shopping-car::before {
+  content: "\E60C";
+}
+
+.icon-search::before {
+  content: "\E616";
+}
+
+.icon-iphone::before {
+  content: '\E908';
+}
+
+.icon-personal-center::before {
+  content: "\E610";
+}
+
+.icon-after-sales-service::before {
+  content: "\E634";
+}
+
+.icon-manual-customer-service::before {
+  content: '\E617';
+}
+
+.icon-big::before {
+  content: '\E623';
+}
+
+.icon-small::before {
+  content: '\E628';
+}
+
+.icon-time::before {
+  content: '\E63D';
+}
+
+.icon-home::before {
+  content: '\E638';
+}
+
+.icon-F::before {
+  content: '\E63F';
+}
+
+.icon-m::before {
+  content: '\E906';
+}
+
+.icon-money::before {
+  content: '\E907';
+}
+.icon-moblie::before{
+  content: '\E904';
+}

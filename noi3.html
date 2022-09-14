@@ -1,0 +1,271 @@
+<script type="x" id="ch0105/16">
+  var money = Number(prompt()), // 年薪
+      k = parseInt(prompt()), // 百分比
+      p = 1 + k / 100 ,
+      totalSalary = 0 ,
+      housePrice = 200;
+
+  for ( var i = 1; ; i++ ) {
+    if ( i != 1){
+      housePrice = 1 + k / 100;
+    }
+    totalSalary + = money;
+    if (totalSalary > housePrice) {
+      console.log(i);
+      break;
+    } else if (i == 20 && totalSalary > housePrice) {
+      console.log('Impossible');
+      break;
+  }
+  }
+</script>
+
+<script type="x" id="ch0105/17">
+  var k = parseInt(prompt()),
+      n1 = 1,
+      n2 = 1,
+      n3 = 0;
+
+  if (k == 1 || k == 2) {
+    console.log('1');
+  } else {
+    for (var i = 2; i < k ; i++) {
+      n3 = n1 + n2;
+      n1 = n2;
+      n2 = n3;
+    }
+    console.log(n3);
+  }
+</script>
+
+<script type="x" id="ch0105/18">
+  var k = parseInt(prompt('n')), //  行数
+      percent = 0,
+      newPercent = 0;
+  for (var i = 0;i < k;i++) {
+    if (i == 0) {
+      var m = parseInt(prompt()) // 第i+1行病例总数
+          x = parseInt(prompt()) // 第i+ 1 行鸡尾酒疗效有效的病例数
+          percent = x / m 
+    }else {
+      var m2 = parseInt(prompt()) // 第i+1 行病例总数
+      var x2 = parseInt(prompt()) // 第i+1行新的疗法有效病例数
+      newPercent = x2 / m2 
+      if(newPercent - percent > 0.05)console.log('better')
+      else if(percent - newPercent > 0.05) console.log('worse')
+      else console.log('same')
+    }
+  }
+
+</script>
+
+<script type="x" id="ch0105/19">
+  var k = parseInt(prompt()), // 屋顶数n
+      distance = 0,
+      speed = 50,
+      time = 0;
+  for (var i = 0; i < K; i++) {
+    var x = parseInt(prompt()); //  第$i+1个屋顶的坐标
+        y = parseInt(prompt()); // 第$i+1个屋顶的坐标
+        num = parseInt(prompt()); //  第$i+1个屋顶的坐标
+        distance = Math.sqrt(x**2 + y**2) * 2;
+        time = num * 1.5;
+        console.log(Math.ceil(distance / 50 + time));
+  }
+
+</script>
+<script type="x" id="ch0105/20">
+  var k = parseInt(prompt()), // 初始高度
+      total = k,
+      height = k;
+  for (var i = 1; i < 10; i++) {
+      height = height / 2;
+      total += height * 2;
+  }
+  console.log(total,height);
+</script>
+
+<script type="x" id="ch0105/21">
+    var k = parseInt(prompt());
+    while(k != 1){
+      if(k % 2 !==0){
+        console.log(`${K}*3+1=` + (k * 3 + 1));
+        k = k * 3 + 1 ;
+      }else{
+        console.log(`${k}/2=` + (k / 2));
+        k = k / 2;
+      }
+    }
+    console.log('End');
+</script>
+
+<script type="x" id="ch0105/22">
+  var total = 0,
+      perDeposit = 0,
+      totalDeposit = 0;
+  for(var i = 1;i <= 12;i++){
+    var budget = parseInt(prompt()); 第$月份预算
+    if(300 - budget + total >= 0){
+      total += 300 - budget;
+      if(total >= 100){
+        perDeposit = Math.floor(total / 100) * 100;
+        totalDeposit += perDeposit;
+        total = total - perDeposit;
+      }
+      if (i == 12){
+        console.log(total + (totalDeposit * 1.2));
+        break;
+      }
+    }else {
+      console.log('-' + i);
+      break;
+    }
+  }
+</script>
+
+<script type="x" id="ch0105/23">
+  var m = parseInt(prompt()), // 取药数量
+      n = parseInt(prompt()), // 人口
+      total = 0,
+      count = 0;
+  for (var i = 0; i < ; i++){
+    var per = parseInt(prompt()), // 取药数量
+        rest = m - total;
+    if (rest > per) {
+      total += per;
+      count++;
+    }else {
+      continue;
+    }
+  }
+  console.log(n - count);
+</script>
+
+<script type="x" id="ch0105/24">
+  var n = parseInt(prompt()), //多少行
+      count = 0;
+  for (var i = 0;i < n ; i++){
+    var x = parseInt(prompt()),//第$i+1行收缩
+        y = parseInt(prompt()), // 第$i+1张压
+        if(x > 90 && x < 140  && y > 60 && y <= 90){
+          count++;
+        }else {
+          count --;
+        }
+  }
+  console.log(count);
+</script>
+
+<script type="x" id="ch0105/25">
+
+</script>
+
+<script type="x" id="ch0105/26">
+  var n = parseInt(prompt()),
+      count = 0;
+  for (var i =0;i<n;i++){
+    var x = parseInt(prompt()), //  第${i+1}个值
+        single = x % 10,
+        ten = (x % 100 - single),
+        hundreds = (x % 1000 - x % 100) / 100,
+        thousands = (x - x % 1000) / 1000;
+    // console.log (single,ten,hundreds,thousands);
+    if (single - thousands -hundreds - ten > 0) {
+      count ++
+    }
+  }
+  console.log(count);
+
+</script>
+
+<script type="x" id="ch0105/27">
+  var k =parseInt(prompt()),
+      n1 = 1,
+      count = 0,
+      sum = 0;
+  while (sum <= k){
+    sum += 1 / n1;
+    n1++;
+    count++;
+  }
+  console.log(count);
+
+</script>
+
+<script type="x" id="ch0105/28">
+  var k =+prompt(),
+  arr = k.split(''),
+  reverseArr = arr.reverse(),
+  num = reverseArr.join('');
+  console.log(num);
+</script>
+
+<script type="x" id="ch0105/29">
+    var k =+prompt(), //整数
+        arr = k.split(''),
+        //console.log(arr);
+        if(arr[0] == '-'){
+          arr.splice(0,1);
+          arr.reverse();
+          if(arr[0] == '0'){
+            arr.splice(0,1);
+          }
+          arr.splice(0,0,'-');
+          console.log(arr.join(''));
+        }else{
+          arr.reverse();
+          if(arr[0] == '0'){
+            arr.splice(0,1);
+          } 
+          console.log(arr.join(''));
+        }
+</script>
+<script type="x" id="ch0105/39">
+  var has7 = function (n) {
+    if (n % 7 == 0) {
+      return true 
+    }
+
+    while (n > 0) {
+      var ge = n % 10 
+      if (ge === 7) {
+        return true 
+      }
+      n = (n - ge ) / 10
+    }
+    return false
+  }
+</script>
+
+<script>34
+  var factorial = function (x) {
+    var result = 1
+    for (var i = 2; i <= x; i++) {
+      result *= i
+    }
+    return result
+  }
+  var sum = 0  // 求阶乘的总和
+  for (var n = 1; n <= 5; n++) {
+    sum += factorial(n)
+  }
+
+  console.log(sum)
+</script>
+
+<script>39
+  // 判断这个函数跟7有没有关系 
+  // 有关返回true无关返回false 
+  // 与7有关 : 是7的倍数或各个位上含有7
+  var has7 = function (n) {
+    if (n % 7 == 0) {
+      return true
+    }
+    while (n > 0) {
+
+    }
+  } 
+</script>
+<script>
+
+</script>
