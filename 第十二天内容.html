@@ -263,3 +263,72 @@
     return result 
   }
 </script>
+
+二叉数
+<script>
+  //将存储于array中的根结点在rootPos位置的二叉树转换为二叉链表形式
+  function arrayToTree(array, rootPos = 0) {
+    if (array[rootPos] === null ) {
+      return null
+    }
+
+    var root = {
+      val : array[rootPos],
+      left :arrayToTree(array,rootPos * 2 + 1) ,
+      right : arrayToTree(array, rootPos * 2 + 2),
+    }
+    var leftTree = arrayToTree(array,rootPos * 2 + 1)
+    var rightTree = arrayToTree(array, rootPos * 2 + 2)
+
+    root.left = leftTree
+    // if (leftTree ) {
+    //   leftTree.parent = root
+    // }
+
+    root.right = rightTree
+    // if (rightTree) {
+    //   rightTree.parent = root
+    // }
+
+    return root
+  }
+
+  function f() {
+    var array = [] //创建新数组
+
+     // 把节点的值填进数组
+    function treeToArray(root, pos = 0) {
+      if (root == null) {
+        return 
+      }
+      array[pos] = root.val
+  
+      treeToArray(root.left, pos * 2 + 1)
+      treeToArray(root.left, pos * 2 + 2)
+  
+    }
+
+    // 把结点的值填进数组
+    treeToArray(root)
+
+    // for (var i = 0; i < array.length; i++) {
+    //   if (array[i] === undefined) {
+    //     array[i] = null
+    //   }
+    // }
+    return array
+  }
+
+  function treeToArray2(root, pos = 0, array = []) {
+    if (root == null) {
+      return null 
+    }
+
+    array[pos] = root.val
+
+  treeToArray2(root.left, pos * 2 + 1, array)
+  treeToArray2(root.right,pos * 2 + 2, array)
+
+  return array
+  }
+</script>

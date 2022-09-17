@@ -1,5 +1,5 @@
 
-var abel = {
+var jy_abel = {
 
   chunk: function(array, size = 1) {
     var res = []
@@ -37,5 +37,50 @@ var abel = {
      }
      return result
   },
+  
 
+  // findIndex: function(array,[predicate = _.identity],[fromIndex = 0]) {
+  //   var  result = {}
+  //   var index = 0
+  //   for (var i = 0; i < array.length; i++) {
+  //     if (predicate != _.identity) {
+  //       return -1
+  //     } else if (predicate = _.identity) {
+  //       array[i] = _.identity
+
+  //       return  
+  //     }
+  //   }
+  // },
+
+  concat: function(array,values) {
+    var result = array.slice()
+    
+    if (Array.isArray(values)) {
+      for (var i = 0; i < values.length; i++) { 
+        result.push(values[i])
+      }
+    } else {
+      result.push(values)
+    }
+    return result
+  },
+
+  difference: function(array,values) {
+    var result = []
+    var ite = {}
+
+    for (var i = 0; i < values.length; i++){
+      ite[values[i]] = 1
+    }
+
+    for (var i = 0; i < array.length; i++) {
+      if (!(array[i] in ite)) {
+        result.push(array[i])
+      }
+    }
+    return result 
+  },
+
+   
 }
